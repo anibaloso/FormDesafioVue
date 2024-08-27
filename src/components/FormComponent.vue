@@ -12,11 +12,10 @@ export default {
             tipSelect: '',
             textoOpaco: false,
             sizes: [
-                {
-                    'Pequeño': 'small',
-                    'Mediano': 'medium',
-                    'Grande': 'large'
-                }
+                    {'label':'Pequeño', 'value': 'small'},
+                    {'label':'Mediano', 'value': 'medium'},
+                    {'label':'Grande', 'value': 'large'}
+                
             ],
             sizeSelected: 'medium'
         }
@@ -47,10 +46,16 @@ export default {
             </label>
 
             <label>Tamaño de letra</label>
-            <label v-for="(size,idx) in sizes[0]" :key="idx">
-                <input type="radio" :value="size" v-model="sizeSelected">
-                {{ idx }}
-            </label>
+            <div v-for="size in sizes" :key="size">
+                <label :for="size.value">{{ size.label }}</label>
+                    <input 
+                    type="radio" 
+                    :name="size.value"
+                    :value="size.value"
+                    :id="size.value" 
+                    v-model="sizeSelected">
+                                    
+            </div>
 
         </div>
         <br><br>
