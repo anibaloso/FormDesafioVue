@@ -61,7 +61,7 @@ export default {
             fontFamily: tipSelect,
             fontSize:sizeSelected
         }">
-            <div v-if="textoVisible" :class="{ 'opaco': textoOpaco }">{{ contenido }}</div>
+            <div v-show="textoVisible" :class="{ 'opaco': textoOpaco }">{{ contenido }}</div>
         </div>
 
 
